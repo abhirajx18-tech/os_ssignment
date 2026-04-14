@@ -1,0 +1,39 @@
+{
+  "dashboard": {
+    "title": "PBFT Mock Transactions",
+    "description": "PBFT Consensus Network - Transaction Metrics",
+    "uid": "pbft-transactions",
+    "tags": ["pbft", "blockchain", "transactions"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Transactions Submitted",
+        "type": "stat",
+        "gridPos": {"h": 8, "w": 6, "x": 0, "y": 0},
+        "targets": [{"expr": "sum(pbft_transactions_submitted_total)", "refId": "A", "datasource": "Prometheus"}],
+        "fieldConfig": {"defaults": {"color": {"mode": "palette-classic"}, "mappings": [], "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}]}},"overrides": []},
+        "options": {"colorMode": "value", "graphMode": "none", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto"}
+      },
+      {
+        "id": 2,
+        "title": "Transactions Confirmed",
+        "type": "stat",
+        "gridPos": {"h": 8, "w": 6, "x": 6, "y": 0},
+        "targets": [{"expr": "sum(pbft_transactions_confirmed_total)", "refId": "A", "datasource": "Prometheus"}],
+        "fieldConfig": {"defaults": {"color": {"mode": "palette-classic"}, "mappings": [], "thresholds": {"mode": "absolute", "steps": [{"color": "blue", "value": null}]}},"overrides": []},
+        "options": {"colorMode": "value", "graphMode": "none", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto"}
+      },
+      {
+        "id": 3,
+        "title": "Total Transaction Value",
+        "type": "stat",
+        "gridPos": {"h": 8, "w": 6, "x": 12, "y": 0},
+        "targets": [{"expr": "sum(pbft_transaction_value_total)", "refId": "A", "datasource": "Prometheus"}],
+        "fieldConfig": {"defaults": {"color": {"mode": "palette-classic"}, "mappings": [], "thresholds": {"mode": "absolute", "steps": [{"color": "purple", "value": null}]}},"overrides": []},
+        "options": {"colorMode": "value", "graphMode": "none", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto"}
+      }
+    ]
+  },
+  "overwrite": true
+}
